@@ -1,9 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { ThemeProviderContext } from "./contexts/ThemeContext";
+import { LayoutProvider } from "./contexts/LayoutContext";
+
+import Routes from "./routes";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ThemeProviderContext>Hello</ThemeProviderContext>
+    <LayoutProvider>
+      <Routes />
+    </LayoutProvider>
   </StrictMode>
 );
