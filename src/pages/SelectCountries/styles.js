@@ -5,4 +5,8 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
+
+  .select-component {
+    max-width: 500px;
+  }
 `;

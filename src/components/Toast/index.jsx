@@ -1,28 +1,20 @@
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { useTheme } from "styled-components";
+import { ToastContainer } from "react-toastify";
+import { useLayout } from "../../contexts/LayoutContext";
 
 export const ToastProvider = () => {
-  const theme = useTheme();
+  const { theme } = useLayout();
 
   return (
     <ToastContainer
-      position="top-right"
+      position="top-center"
       autoClose={3000}
       hideProgressBar={false}
       newestOnTop
       closeOnClick
-      rtl={false}
       pauseOnFocusLoss
       draggable
       pauseOnHover
       theme={theme.title}
-      toastStyle={{
-        background: theme.colors.surface,
-        color: theme.colors.text,
-        border: `1px solid ${theme.colors.border}`,
-        borderRadius: "10px",
-      }}
     />
   );
 };

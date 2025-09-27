@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Navigate } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 import AppRoutes from "./app.routes";
 

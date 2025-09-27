@@ -5,6 +5,7 @@ export const lightTheme = {
     primary: "#6200ee",
     primaryHover: "#6300eec4",
     secondary: "#03dac6",
+    secondaryHover: "#03dac591",
 
     background: "#f5f5f5",
     surface: "#ffffff",
@@ -26,6 +27,7 @@ export const darkTheme = {
     primary: "#bb86fc",
     primaryHover: "#bb86fcb9",
     secondary: "#03dac6",
+    secondaryHover: "#03dac591",
 
     background: "#121212",
     surface: "#1e1e1e",

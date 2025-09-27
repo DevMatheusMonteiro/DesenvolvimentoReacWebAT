@@ -1,9 +1,9 @@
+import { Container } from "./styles";
 import { useLayout } from "../../contexts/LayoutContext";
 import { IconButton } from "../IconButton";
-import { Container } from "./styles";
 import { FaSun, FaMoon } from "react-icons/fa6";
 
-export default function Header() {
+export function Header() {
   const { toggleTheme, theme } = useLayout();
   return (
     <Container>
