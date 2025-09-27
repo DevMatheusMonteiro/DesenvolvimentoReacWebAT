@@ -20,7 +20,6 @@ export const Container = styled.div`
         border: 1px solid ${({ theme }) => theme.colors.border};
         border-radius: 8px;
         padding: 1.2rem;
-        /* max-width: 150px; */
         display: flex;
         align-items: center;
         justify-content: center;

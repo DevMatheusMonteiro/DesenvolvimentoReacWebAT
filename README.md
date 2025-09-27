@@ -1,16 +1,59 @@
-# React + Vite
+# Desenvolvimento React Web AT
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um projeto de aprendizado e prática em React.js, utilizando diversos conceitos e bibliotecas modernas, como rotas, formulários, estilização, notificações e consumo de APIs externas.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 19
+- Styled-components – Estilização com temas dinâmicos
+- React Router DOM – Gerenciamento de rotas
+- React Hook Form – Manipulação de formulários
+- React Select – Dropdowns customizados
+- React Toastify – Notificações estilizadas
+- React Icons – Ícones prontos para uso
+- Faker.js – Geração de dados falsos para testes
 
-## React Compiler
+## 📂 Estrutura de páginas
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+O projeto contém diferentes páginas acessíveis através de um menu principal:
 
-## Expanding the ESLint configuration
+- Quiz – Página de perguntas e respostas
+- Inline Event – Exemplo de evento inline
+- Handle Event – Exemplo de evento via função handler
+- Handle Event x Inline Event – Comparação entre os dois tipos
+- Admin Page
+  - `/admin-page/admin-on` → Administrador selecionado
+  - `/admin-page/admin-off` → Colaborador selecionado
+- Select Countries – Dropdown de países com dados da API RestCountries
+- Products – Lista de 100 produtos gerados com Faker e filtrados via input
+- Select Food – Dropdown de categorias de pratos (API TheMealDB)
+- Formulários (com query params para preencher os campos):
+  - `/simple-form` – Formulário simples
+  - `/simple-form-validation` – Formulário simples com validação -`/hook-form` – Formulário usando React Hook Form
+  - `/hook-form-validation` – Formulário com validação usando React Hook Form
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Como rodar o projeto
+
+1. Clonar o repositório:
+   ```bash
+   git clone https://github.com/DevMatheusMonteiro/DesenvolvimentoReactWebAT.git
+   cd DesenvolvimentoReactWebAT
+   ```
+2. Instalar as dependências:
+   ```bash
+   npm install
+   ```
+3. Executar:
+   ```bash
+   npm run dev
+   ```
+
+## 🎨 Temas
+
+O projeto conta com suporte a tema claro e escuro, definidos em lightTheme e darkTheme, integrados ao ThemeProvider do styled-components.
+
+## 📌 Funcionalidades extras
+
+- Notificações globais com React Toastify (warning, error, success, info).
+- Filtros em listas com dados falsos gerados via faker.
+- Formulários dinâmicos preenchidos via query params (URLSearchParams).
