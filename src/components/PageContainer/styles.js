@@ -19,6 +19,19 @@ export const Container = styled.div`
       max-width: 1000px;
       margin-inline: auto;
       padding: 2rem 1.6rem;
+      a {
+        cursor: pointer;
+        text-decoration: none;
+        color: ${({ theme }) => theme.colors.text};
+      }
+      .home-link {
+        text-transform: uppercase;
+      }
+
+      .title {
+        text-align: center;
+        margin-bottom: 2.4rem;
+      }
     }
   }
 `;

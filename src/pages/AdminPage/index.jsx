@@ -2,9 +2,11 @@ import { Container } from "./styles";
 import { PageContainer } from "../../components/PageContainer";
 import { notify } from "../../services/toastService";
 import { Checkbox } from "../../components/Checkbox";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 export default function AdminPage() {
-  const [isAdmin, setIsAdmin] = useState(false);
+  const { isAdminOn } = useParams();
+  const [isAdmin, setIsAdmin] = useState(isAdminOn == "admin-on");
 
   function toggleAdmin() {
     setIsAdmin(!isAdmin);
@@ -14,6 +16,14 @@ export default function AdminPage() {
         : "O usuário atual é um colaborador"
     );
   }
+
+  useEffect(() => {
+    notify.info(
+      isAdmin
+        ? "O usuário atual é um administrador"
+        : "O usuário atual é um colaborador"
+    );
+  }, []);
   return (
     <PageContainer>
       <Container className="wrapper">
