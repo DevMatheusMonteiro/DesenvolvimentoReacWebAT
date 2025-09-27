@@ -14,7 +14,7 @@ export default function SelectFood() {
     try {
       const res = await fetchCategories();
       setCategories(res.categories);
-    } catch () {
+    } catch {
       notify.error("Erro ao carregar categorias.");
     }
   }
