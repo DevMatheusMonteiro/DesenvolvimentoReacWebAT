@@ -4,6 +4,7 @@ import { RegisterForm } from "../../components/RegisterForm";
 import { PageContainer } from "../../components/PageContainer";
 import { Link, useSearchParams } from "react-router-dom";
 import { UserJson } from "../../components/UserJson";
+import { notify } from "../../services/toastService";
 
 export default function SimpleForm() {
   const [params] = useSearchParams();
@@ -14,6 +15,7 @@ export default function SimpleForm() {
   function onSubmit(e) {
     e.preventDefault();
     setUser({ name, email, telephone });
+    notify.success("Usuário registrado com sucesso!");
   }
 
   return (

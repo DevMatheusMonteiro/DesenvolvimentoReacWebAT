@@ -4,8 +4,11 @@ import { RegisterForm } from "../../components/RegisterForm";
 import { PageContainer } from "../../components/PageContainer";
 import { notify } from "../../services/toastService";
 import { useForm } from "react-hook-form";
+import { UserJson } from "../../components/UserJson";
+import { Link, useSearchParams } from "react-router-dom";
 
 export default function HookFormValidation() {
+  const [params] = useSearchParams();
   const {
     register,
     handleSubmit,
@@ -13,7 +16,11 @@ export default function HookFormValidation() {
     watch,
     formState: { errors },
   } = useForm({
-    defaultValues: { name: "", email: "", telephone: "" },
+    defaultValues: {
+      name: params.get("name"),
+      email: params.get("email"),
+      telephone: params.get("telephone"),
+    },
   });
   const [user, setUser] = useState();
   const name = watch("name");
@@ -38,6 +45,8 @@ export default function HookFormValidation() {
   return (
     <PageContainer>
       <Container className="wrapper">
+        <Link to="/">Home</Link>
+        <h2 className="title">Hook Form Com Validação</h2>
         <RegisterForm
           errors={errors}
           onSubmit={handleSubmit(onSubmitValid, onSubmitInvalid)}
@@ -51,12 +60,7 @@ export default function HookFormValidation() {
           })}
         />
 
-        {user && (
-          <div className="result">
-            <h3>Usuário</h3>
-            <p>{JSON.stringify(user)}</p>
-          </div>
-        )}
+        {user && <UserJson user={user} />}
       </Container>
     </PageContainer>
   );

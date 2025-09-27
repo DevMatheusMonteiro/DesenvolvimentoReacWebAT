@@ -3,6 +3,7 @@ import { faker } from "@faker-js/faker";
 import { Container } from "./styles";
 import { PageContainer } from "../../components/PageContainer";
 import { Input } from "../../components/Input";
+import { Link } from "react-router-dom";
 
 export default function Products() {
   const [search, setSearch] = useState("");
@@ -21,6 +22,10 @@ export default function Products() {
   return (
     <PageContainer>
       <Container className="wrapper">
+        <Link to="/" className="home-link">
+          Home
+        </Link>
+        <h2 className="title">Países</h2>
         <Input
           id="search"
           label="Pesquise por produtos"

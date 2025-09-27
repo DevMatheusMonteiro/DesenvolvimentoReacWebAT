@@ -3,15 +3,20 @@ import { PageContainer } from "../../components/PageContainer";
 import { Select } from "../../components/Select";
 import { useEffect, useState } from "react";
 import { fetchCategories } from "../../services/theMelDbService";
+import { Link } from "react-router-dom";
+import { notify } from "../../services/toastService";
 
 export default function SelectFood() {
   const [categories, setCategories] = useState([]);
   const [selectCategory, setSelectCategory] = useState();
 
   async function loadCategories() {
-    const res = await fetchCategories();
-
-    setCategories(res.categories);
+    try {
+      const res = await fetchCategories();
+      setCategories(res.categories);
+    } catch () {
+      notify.error("Erro ao carregar categorias.");
+    }
   }
 
   useEffect(() => {
@@ -20,6 +25,10 @@ export default function SelectFood() {
   return (
     <PageContainer>
       <Container className="wrapper">
+        <Link to="/" className="home-link">
+          Home
+        </Link>
+        <h2 className="title">Select Food</h2>
         <Select
           options={categories}
           getOptionLabel={(opt) => opt.strCategory}

@@ -3,7 +3,7 @@ import { PageContainer } from "../../components/PageContainer";
 import { Select } from "../../components/Select";
 import { fetchCountries } from "../../services/restCountriesService";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export default function SelectCountries() {
   const { country } = useParams();
@@ -30,6 +30,10 @@ export default function SelectCountries() {
   return (
     <PageContainer>
       <Container className="wrapper">
+        <Link to="/" className="home-link">
+          Home
+        </Link>
+        <h2 className="title">Países</h2>
         <Select
           value={selectCountry}
           isLoading={loading}

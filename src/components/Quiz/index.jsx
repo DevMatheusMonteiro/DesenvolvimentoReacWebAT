@@ -5,7 +5,7 @@ import { Button } from "../Button";
 export function Quiz({ question, children }) {
   const [appear, setAppear] = useState(false);
   return (
-    <Container>
+    <Container className="quiz-component">
       <p className="question">{question}</p>
       {appear && <div className="result">{children}</div>}
       <Button

@@ -1,8 +1,9 @@
 import { Container } from "./styles";
 import { PageContainer } from "../../components/PageContainer";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const navigate = useNavigate();
   const params = new URLSearchParams({
     name: "Matheus Monteiro",
     email: "matheus@email.com",
@@ -13,52 +14,38 @@ export default function Home() {
       <Container className="wrapper">
         <nav>
           <ul>
-            <li>
-              <Link to="/quiz">Quiz</Link>
+            <li onClick={() => navigate("/quiz")}>Quiz</li>
+            <li onClick={() => navigate("/inline-event")}>Inline Event</li>
+            <li onClick={() => navigate("/handle-event")}>Handle Event</li>
+            <li onClick={() => navigate("/handle-event-x-inline-event")}>
+              Handle Event X Inline Event
             </li>
-            <li>
-              <Link to="/inline-event">Inline Event</Link>
+            <li onClick={() => navigate("/admin-page/admin-on")}>Admin</li>
+            <li onClick={() => navigate("/admin-page/admin-off")}>
+              Colaborador
             </li>
-            <li>
-              <Link to="/handle-event">Handle Event</Link>
+            <li onClick={() => navigate("/select-countries/Brazil")}>Países</li>
+            <li onClick={() => navigate("/products")}>Produtos</li>
+            <li onClick={() => navigate("/select-food")}>Select Food</li>
+            <li onClick={() => navigate(`/simple-form?${params.toString()}`)}>
+              Formulário Simples
             </li>
-            <li>
-              <Link to="/handle-event-x-inline-event">
-                Handle Event X Inline Event
-              </Link>
+            <li
+              onClick={() =>
+                navigate(`/simple-form-validation?${params.toString()}`)
+              }
+            >
+              Formulário Simples Com Validação
             </li>
-            <li>
-              <Link to={`/admin-page/admin-on`}>Admin</Link>
+            <li onClick={() => navigate(`/hook-form?${params.toString()}`)}>
+              Hook Form
             </li>
-            <li>
-              <Link to={`/admin-page/admin-off`}>Colaborador</Link>
-            </li>
-            <li>
-              <Link to={`/select-countries/Brazil`}>Países</Link>
-            </li>
-            <li>
-              <Link to="/products">Produtos</Link>
-            </li>
-            <li>
-              <Link to="/select-food">Select Food</Link>
-            </li>
-            <li>
-              <Link to={`/simple-form?${params.toString()}`}>
-                Formulário Simples
-              </Link>
-            </li>
-            <li>
-              <Link to={`/simple-form-validation?${params.toString()}`}>
-                Formulário Simples Com Validação
-              </Link>
-            </li>
-            <li>
-              <Link to={`/hook-form?${params.toString()}`}>Hook Form</Link>
-            </li>
-            <li>
-              <Link to={`/hook-form-validation?${params.toString()}`}>
-                Hook Form Validação
-              </Link>
+            <li
+              onClick={() =>
+                navigate(`/hook-form-validation?${params.toString()}`)
+              }
+            >
+              Hook Form Validação
             </li>
           </ul>
         </nav>

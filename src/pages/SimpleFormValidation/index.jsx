@@ -3,13 +3,15 @@ import { useState } from "react";
 import { RegisterForm } from "../../components/RegisterForm";
 import { PageContainer } from "../../components/PageContainer";
 import { notify } from "../../services/toastService";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+import { UserJson } from "../../components/UserJson";
 
 export default function SimpleFormValidation() {
+  const [params] = useSearchParams();
   const [user, setUser] = useState();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [telephone, setTelephone] = useState("");
+  const [name, setName] = useState(params.get("name"));
+  const [email, setEmail] = useState(params.get("email"));
+  const [telephone, setTelephone] = useState(params.get("telephone"));
   const [errors, setErrors] = useState({});
   function onSubmit(e) {
     e.preventDefault();
@@ -31,6 +33,7 @@ export default function SimpleFormValidation() {
       notify.error(message);
       return setErrors({ telephone: { message } });
     }
+    notify.success("Usuário registrado com sucesso!");
     setUser({ name, email, telephone });
   }
 
@@ -56,12 +59,7 @@ export default function SimpleFormValidation() {
           }}
         />
 
-        {user && (
-          <div className="result">
-            <h3>Usuário</h3>
-            <p>{JSON.stringify(user)}</p>
-          </div>
-        )}
+        {user && <UserJson user={user} />}
       </Container>
     </PageContainer>
   );

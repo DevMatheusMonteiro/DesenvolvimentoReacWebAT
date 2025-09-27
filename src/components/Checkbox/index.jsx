@@ -3,7 +3,7 @@ import { FaCheck } from "react-icons/fa";
 
 export function Checkbox({ label, onChange, id, checked = false }) {
   return (
-    <Container>
+    <Container className="checkbox-component">
       <label htmlFor={id}>{label}</label>
       <div className="checkbox">
         <input type="checkbox" id={id} onChange={onChange} checked={checked} />
